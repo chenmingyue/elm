@@ -11,19 +11,21 @@ export default new Router({
       path: '/',
       name: 'Goods',
       component: Goods,
-      hashbang: false
+
     },
     {
       path:'/seller',
       name:'seller',
       component:Seller,
-      hashbang: false
+
     },
     {
       path:'/assess',
       name:'assess',
       component:Assess,
-      hashbang: false
+
     }
   ]
+
+
 })

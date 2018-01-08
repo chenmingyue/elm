@@ -1,6 +1,6 @@
 <template>
     <div class="top">
-      {{meg}}
+      <div></div>
     </div>
 </template>
 
