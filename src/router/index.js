@@ -1,15 +1,29 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-
+import Goods from '@/components/goods/goods'
+import Seller from '@/components/seller/seller'
+import Assess from '@/components/assess/assess'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Goods',
+      component: Goods,
+      hashbang: false
+    },
+    {
+      path:'/seller',
+      name:'seller',
+      component:Seller,
+      hashbang: false
+    },
+    {
+      path:'/assess',
+      name:'assess',
+      component:Assess,
+      hashbang: false
     }
   ]
 })
