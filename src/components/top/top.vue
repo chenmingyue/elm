@@ -12,8 +12,8 @@
           <div class="description">
             {{seller.description}}/{{seller.deliveryTime}}分钟送达
           </div>
-          <div v-if="seller.supportps" class="support">
-            <span class="icon"></span>
+          <div v-if="seller.supports" class="support">
+            <span class="icon bg"></span>
             <span class="text">{{seller.supports[0].description}}</span>
           </div>
         </div>
@@ -34,6 +34,9 @@
         seller:{
           type:Object
         }
+      },
+      created(){
+        this.classMap=['decrease','']
       }
     }
 </script>
@@ -84,11 +87,32 @@
       .support{
         .icon{
           display: inline-block;
+          vertical-align: top;
           width: 12px;
           height: 12px;
           margin-right: 4px;
           background-size: 12px 12px;
           background-repeat: no-repeat;
+          &.decrease{
+            bg-image('decrease_1')
+          }
+          &.discount{
+          bg-image('discount_1')
+          }
+          &.guarantee{
+          bg-image('guarantee_1')
+          }
+          &.invoice{
+          bg-image('invoice_1')
+          }
+          &.special{
+          bg-image('special_1')
+          }
+        }
+        .text{
+          line-height: 12px;
+          font-size: 12px;
+
         }
       }
     }
