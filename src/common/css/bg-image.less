@@ -1,0 +1,10 @@
+
+.gradientBackground(@ccc){
+  //注意插值时bgc是没有带@
+  @bgc:"@{ccc}@2x";
+  background-image:url('./../../components/top/@{bgc}.png');
+  @media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio:2 ){
+    @bgc:"@{ccc}@3x";
+    background-image:url('./../../components/top/@{bgc}.png');
+  }
+}

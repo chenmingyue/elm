@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--顶部-->
-   <top>
+   <top :seller="seller">
    </top>
    <!--tab部分-->
     <div class="tab">
@@ -24,13 +24,20 @@
 
 <script>
 import Top from '@/components/top/top';
+import axios from 'axios'
 
 export default {
   name: 'app',
   data(){
     return {
-
+        seller:{}
     }
+
+  },
+  mounted(){
+    axios.get('http://result.eolinker.com/rPNTNnr9a7f82c3f81de4b1dea66e1f0e0b3b176d78c66e?uri=api/data').then((res)=>{
+      this.seller=res.data.seller;
+    })
 
   },
   components:{
@@ -39,7 +46,6 @@ export default {
 }
 
 </script>
-
 <style  lang="less" scoped>
   @import "./common/css/border1px.less";
 
@@ -47,7 +53,6 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 
   font-style:normal;
@@ -65,8 +70,10 @@ export default {
       flex: 1;
       a{
         font-size:14px ;
-        line-height: 14px;
+        line-height: 40px;
         color: rgb(77,85,93);
+        display: block;
+        height: 40px;
       }
       .router-link-exact-active{
         color:rgb(240,20,20);
