@@ -8,3 +8,18 @@
     background-image:url('./../../components/top/@{bgc}.png');
   }
 }
+.bg-image(@type){
+  @typec:"@{type}@2x";
+  background-image:url('./../../components/top/@{typec}.png');
+}
+.clearfix{
+  display: inline-block;
+  &:after{
+    display: block;
+    content: '.';
+    height: 0;
+    line-height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}

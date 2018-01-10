@@ -74,6 +74,7 @@ export default {
         color: rgb(77,85,93);
         display: block;
         height: 40px;
+        text-align: center;
       }
       .router-link-exact-active{
         color:rgb(240,20,20);
