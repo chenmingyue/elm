@@ -2,7 +2,7 @@
     <div class="goods">
         <div class="menu-wrapper" ref="menuwrapper">
           <ul>
-            <li v-for="(item,index) in goods" class="menu-item " :class="{'current':currentIndex===index}">
+            <li v-for="(item,index) in goods" @click="selectMenu(index)" class="menu-item " :class="{'current':currentIndex===index}">
               <span class="text border-1px">
                 <span v-show="item.type>0" class="icon" :class="classMap[item.type]"></span>{{item.name}}
               </span>
@@ -72,9 +72,7 @@
             let height1=this.listHeight[i];
             let height2=this.listHeight[i+1];
             if(!height2 || (this.scrollY >= height1 && this.scrollY <height2)){
-
               return i;
-
             }
           }
 
@@ -83,10 +81,10 @@
       },
       methods:{
         _initScroll(){
-          this.menuScroll=new BScroll(this.$refs.menuwrapper,{click:true});
-          this.foodScroll=new BScroll(this.$refs.foodwrapper,{probeType:3});//probeType监听实时滚动的位置
+          this.menuScroll=new BScroll(this.$refs.menuwrapper,{click:true});//click:true解决pc端出现两次点击效果
+          this.foodScroll=new BScroll(this.$refs.foodwrapper,{probeType:3});//probeType:3监听实时滚动的位置
           this.foodScroll.on('scroll',(pos)=>{
-            this.scrollY=Math.abs(Math.round(pos.y));
+            this.scrollY=Math.abs(Math.round(pos.y));//Math.abs获取绝对值，Math.round保留两位小数
           })
         },
         _calculateHeight(){
@@ -99,9 +97,15 @@
             this.listHeight.push(height);
           }
 
+        },
+        selectMenu(index){
+          let foodList=this.$refs.foodwrapper.getElementsByClassName('food-list-hook');
+          let el=foodList[index];
+          this.foodScroll.scrollToElement(el,300)
         }
 
-      }
+      },
+
     }
 </script>
 
