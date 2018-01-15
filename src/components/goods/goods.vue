@@ -35,13 +35,14 @@
             </li>
           </ul>
         </div>
-
+        <shopCart :deliverPrice="seller.deliveryPrice" :minPrice="seller.minPrice"> </shopCart>
     </div>
 </template>
 
 <script type="text/ecmascript-6">
   import axios from 'axios'
   import BScroll from 'better-scroll'
+  import shopCart from '@/components/shopCart/shopCart';
     export default {
       name:'goods',
       data(){
@@ -51,6 +52,10 @@
           scrollY:0
         }
       },
+      components:{
+        shopCart
+      },
+
       props:{
         seller:{
           type:Object

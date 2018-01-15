@@ -17,7 +17,7 @@
     </div>
 
 
-    <router-view/>
+    <router-view :seller="seller"></router-view>
  </div>
 
 </template>
@@ -46,7 +46,7 @@ export default {
 }
 
 </script>
-<style  lang="less" scoped>
+<style  lang="less" >
   @import "./common/css/border1px.less";
 
 #app {
